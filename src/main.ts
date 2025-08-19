@@ -5,14 +5,15 @@ interface GameCard {
     nombre: string;
     opcion: Option;
     poder: number;
+    img: string;
 }
 
 const cards: GameCard[] = [
-    { nombre: 'Shenron', opcion: 'piedra', poder: 10 },
-    { nombre: 'Maestro Roshi', opcion: 'papel', poder: 8 },
-    { nombre: 'Bills', opcion: 'tijera', poder: 9 },
-    { nombre: 'Piccolo', opcion: 'lagarto', poder: 7 },
-    { nombre: 'Vegeta', opcion: 'spock', poder: 10 },
+    { nombre: 'Shenron', opcion: 'piedra', poder: 10, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622739/dragpm_mg8kps.gif' },
+    { nombre: 'Maestro Roshi', opcion: 'papel', poder: 8, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622592/maes_l4ijpt.gif' },
+    { nombre: 'Bills', opcion: 'tijera', poder: 9, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622688/bill_dqdpqw.gif' },
+    { nombre: 'Piccolo', opcion: 'lagarto', poder: 7, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622400/Piccolo_nkvkvt.gif' },
+    { nombre: 'Vegeta', opcion: 'spock', poder: 10, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622303/veget_qg0bjg.gif' },
 ];
 
 const rules: Record<Option, Option[]> = {
@@ -54,23 +55,11 @@ function resetGame() {
     updateCounters();
     const resultDiv = document.getElementById('game-result');
     if (resultDiv) resultDiv.innerHTML = '<strong>¡Nuevo juego! Selecciona una carta para comenzar.</strong>';
-}
-
-function getCardImage(nombre: string): string {
-    switch (nombre) {
-        case 'Shenron':
-            return 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755615497/png-transparent-dragon-ball-z-dragon-illustration-shenron-goku-gohan-vegeta-dragon-ball-dragon-ball-leaf-fictional-characters-dragon_o3yl6d.png';
-        case 'Maestro Roshi':
-            return 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755615608/viejo_rjwign.png';
-        case 'Bills':
-            return 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755615572/bills_f4yncr.png';
-        case 'Piccolo':
-            return 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755615549/picolo_kjoiq7.png';
-        case 'Vegeta':
-            return 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755615665/vegeta_yy2c9x.png';
-        default:
-            return '';
-    }
+    // Limpiar cartas seleccionadas
+    const userCardDiv = document.getElementById('user-selected-card');
+    const rivalCardDiv = document.getElementById('rival-selected-card');
+    if (userCardDiv) userCardDiv.innerHTML = '';
+    if (rivalCardDiv) rivalCardDiv.innerHTML = '';
 }
 
 function renderSelectedCard(card: GameCard, containerId: string, label: string) {
@@ -79,7 +68,7 @@ function renderSelectedCard(card: GameCard, containerId: string, label: string) 
     container.innerHTML = `
         <div class="card" style="background:#23305a; min-width:220px; min-height:320px; align-items:center;">
             <h3 style="color:#fff;">${label}</h3>
-            <img src="${getCardImage(card.nombre)}" alt="${card.nombre}" style="width:120px;height:120px;object-fit:contain;border-radius:10px;margin-bottom:18px;border:2px solid #4fd1c5;background:#fff;" />
+            <img src="${card.img}" alt="${card.nombre}" style="width:120px;height:120px;object-fit:contain;border-radius:10px;margin-bottom:18px;border:2px solid #4fd1c5;background:#fff;" />
             <h2 style="color:#4fd1c5; margin:0;">${card.nombre}</h2>
             <p style="margin:0; color:#b3c2e0;">${card.opcion}</p>
             <p style="margin:0; color:#b3c2e0;">Poder: ${card.poder}</p>
@@ -171,14 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    
-    if (!document.getElementById('game-result')) {
-        const resultDiv = document.createElement('div');
-        resultDiv.id = 'game-result';
-        resultDiv.style.margin = '24px 0';
-        resultDiv.style.textAlign = 'center';
-        resultDiv.style.fontSize = '1.2em';
-        document.querySelector('main')?.appendChild(resultDiv);
-    }
+   
     resetGame();
 });

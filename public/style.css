@@ -1,5 +1,8 @@
 body {
-    background: #101935;  
+    background: url('https://res.cloudinary.com/dspprxtpr/image/upload/v1755622918/fondo_s4intr.jpg') no-repeat center center fixed;
+    background-size: cover;
+    /* Puedes agregar un color de respaldo si lo deseas */
+    /* background-color: #1a202c; */
     color: #fff;
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
