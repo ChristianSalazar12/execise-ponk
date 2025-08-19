@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "outDir": "./public/scripts", // Output directory corregido a 'scripts'
+    "target": "ES6", //Js version to copilate
+    "module": "CommonJS",
+    "strict": true
+  }
+}
