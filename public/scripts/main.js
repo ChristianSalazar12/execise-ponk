@@ -1,9 +1,9 @@
 const cards = [
-    { nombre: 'Shenron', opcion: 'piedra', poder: 10, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622739/dragpm_mg8kps.gif' },
-    { nombre: 'Maestro Roshi', opcion: 'papel', poder: 8, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622592/maes_l4ijpt.gif' },
-    { nombre: 'Bills', opcion: 'tijera', poder: 9, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622688/bill_dqdpqw.gif' },
-    { nombre: 'Piccolo', opcion: 'lagarto', poder: 7, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622400/Piccolo_nkvkvt.gif' },
-    { nombre: 'Vegeta', opcion: 'spock', poder: 10, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622303/veget_qg0bjg.gif' },
+    { nombre: 'Shenron', opcion: 'piedra', poder: 10, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622739/dragpm_mg8kps.gif', descripcion: 'El dragón legendario, invocado por las esferas. Gran poder y resistencia.' },
+    { nombre: 'Maestro Roshi', opcion: 'papel', poder: 8, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622592/maes_l4ijpt.gif', descripcion: 'El sabio maestro de artes marciales, astuto y experimentado.' },
+    { nombre: 'Bills', opcion: 'tijera', poder: 9, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622688/bill_dqdpqw.gif', descripcion: 'El dios de la destrucción, rápido y letal en combate.' },
+    { nombre: 'Piccolo', opcion: 'lagarto', poder: 7, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622400/Piccolo_nkvkvt.gif', descripcion: 'El estratega Namekiano, flexible y con gran regeneración.' },
+    { nombre: 'Vegeta', opcion: 'spock', poder: 10, img: 'https://res.cloudinary.com/dspprxtpr/image/upload/v1755622303/veget_qg0bjg.gif', descripcion: 'El príncipe saiyajin, orgulloso y de fuerza imparable.' },
 ];
 const rules = {
     piedra: ['tijera', 'lagarto'],
@@ -23,12 +23,12 @@ function getRivalCard() {
     return cards[Math.floor(Math.random() * cards.length)];
 }
 function updateCounters() {
-    document.getElementById('user-lives').textContent = userLives.toString();
-    document.getElementById('user-wins').textContent = userWins.toString();
-    document.getElementById('user-losses').textContent = userLosses.toString();
-    document.getElementById('rival-lives').textContent = rivalLives.toString();
-    document.getElementById('rival-wins').textContent = rivalWins.toString();
-    document.getElementById('rival-losses').textContent = rivalLosses.toString();
+    document.getElementById('user-lives').textContent = `❤️ ${userLives}`;
+    document.getElementById('user-wins').textContent = `🏆 ${userWins}`;
+    document.getElementById('user-losses').textContent = `❌ ${userLosses}`;
+    document.getElementById('rival-lives').textContent = `❤️ ${rivalLives}`;
+    document.getElementById('rival-wins').textContent = `🏆 ${rivalWins}`;
+    document.getElementById('rival-losses').textContent = `❌ ${rivalLosses}`;
 }
 function resetGame() {
     userLives = 3;
@@ -54,12 +54,13 @@ function renderSelectedCard(card, containerId, label) {
     if (!container)
         return;
     container.innerHTML = `
-        <div class="card" style="background:#23305a; min-width:220px; min-height:320px; align-items:center;">
+        <div class="card" style="background:rgba(255,255,255,0.13); min-width:220px; align-items:center;">
             <h3 style="color:#fff;">${label}</h3>
-            <img src="${card.img}" alt="${card.nombre}" style="width:120px;height:120px;object-fit:contain;border-radius:10px;margin-bottom:18px;border:2px solid #4fd1c5;background:#fff;" />
-            <h2 style="color:#4fd1c5; margin:0;">${card.nombre}</h2>
+            <img src="${card.img}" alt="${card.nombre}" style="width:100%;max-width:140px;height:auto;max-height:140px;object-fit:contain;border-radius:16px;margin-bottom:8px;border:2.5px solid #4fd1c5;background:#fff8;box-shadow:0 2px 12px #0002;display:block;" />
+            <h2 style="color:#fff; margin:0 0 2px 0; font-size:1.25rem; font-weight:700; letter-spacing:1px; text-shadow:0 2px 12px #000, 0 1px 0 #4fd1c5; background:rgba(44,62,80,0.72); border-radius:10px; padding:4px 12px; box-shadow:0 2px 8px #0005; display:inline-block; max-width:90%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${card.nombre}</h2>
+            <div class="card-desc" style="color:#f3f6fa;font-size:1.01rem;font-weight:400;margin:8px 0 0 0;text-align:center;line-height:1.35;opacity:0.97;padding:0 4px 8px 4px;min-height:28px;width:100%;box-sizing:border-box;background:rgba(30,41,59,0.22);border-radius:8px;box-shadow:0 1px 6px #0002;">${card.descripcion}</div>
             <p style="margin:0; color:#b3c2e0;">${card.opcion}</p>
-            <p style="margin:0; color:#b3c2e0;">Poder: ${card.poder}</p>
+            <p style="margin:0; color:#b3c2e0;">⚡ Poder: ${card.poder}</p>
         </div>
     `;
 }
