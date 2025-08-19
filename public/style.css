@@ -1,5 +1,5 @@
 body {
-    background: #101935; /* Azul oscuro elegante */
+    background: #101935;  
     color: #fff;
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
@@ -43,25 +43,33 @@ main {
     background: #182447;
     border-radius: 14px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-    padding: 20px;
+    padding: 28px 20px 24px 20px;
     text-align: center;
-    width: 160px;
+    width: 200px;         
+    min-height: 280px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card img {
-    width: 90px;
-    height: 90px;
-    object-fit: cover;
+    width: 120px;         
+    height: 120px;
+    object-fit: contain;  
     border-radius: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
     border: 2px solid #4fd1c5;
+    background: #fff;     
 }
 
 .card h2 {
-    font-size: 1.2em;
+    font-size: 1.3em;
     margin: 0;
     color: #4fd1c5;
+    word-break: break-word;
+    margin-top: 8px;
 }
 
 .card:hover {
@@ -75,4 +83,40 @@ footer {
     background: #1e2a4a;
     color: #b3c2e0;
     font-size: 1em;
+}
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    margin: 32px 0 16px 0;
+    background: #182447;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    padding: 24px 32px;
+}
+
+.result-user, .result-rival {
+    background: #23305a;
+    border-radius: 10px;
+    padding: 18px 28px;
+    color: #4fd1c5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    min-width: 160px;
+    text-align: center;
+}
+
+.result-user h3, .result-rival h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.3em;
+    color: #fff;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.result-user p, .result-rival p {
+    margin: 8px 0;
+    font-size: 1.1em;
+    color: #b3c2e0;
 }

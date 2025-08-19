@@ -9,35 +9,53 @@
 <body>
     <header>  <h1>Welcome to PockGame</h1></header>
     <main>
-      
-        <p>This is a simple HTML document.</p>
+        <div class="result-container">
+            <div class="result-user">
+                <h3>Usuario</h3>
+                <p>Vidas: <span id="user-lives">3</span></p>
+                <p>Victorias: <span id="user-wins">0</span></p>
+                <p>Perdidas: <span id="user-losses">0</span></p>
+            </div>
+            <div class="result-rival">
+                <h3>Rival</h3>
+                <p>Vidas: <span id="rival-lives">3</span></p>
+                <p>Victorias: <span id="rival-wins">0</span></p>
+                <p>Perdidas: <span id="rival-losses">0</span></p>
+            </div>
+        </div>
+       
+   
+        <div class="selected-cards-container" style="display: flex; justify-content: center; gap: 48px; margin: 32px 0;">
+            <div id="user-selected-card"></div>
+            <div id="rival-selected-card"></div>
+        </div>
         <div class="card-options">
             <div class="card">
-                <img src="images/option1.png" alt="Option 1">
-                <h2>Option 1</h2>
+                <img src="https://res.cloudinary.com/dspprxtpr/image/upload/v1755615497/png-transparent-dragon-ball-z-dragon-illustration-shenron-goku-gohan-vegeta-dragon-ball-dragon-ball-leaf-fictional-characters-dragon_o3yl6d.png" alt="Shenron">
+                <h2>Shenron</h2>
             </div>
             <div class="card">
-                <img src="images/option2.png" alt="Option 2">
-                <h2>Option 2</h2>
+                <img src="https://res.cloudinary.com/dspprxtpr/image/upload/v1755615608/viejo_rjwign.png" alt="Maestro Roshi">
+                <h2>Maestro Roshi</h2>
             </div>
             <div class="card">
-                <img src="images/option3.png" alt="Option 3">
-                <h2>Option 3</h2>
+                <img src="https://res.cloudinary.com/dspprxtpr/image/upload/v1755615572/bills_f4yncr.png" alt="Bills">
+                <h2>Bills</h2>
             </div>
             <div class="card">
-                <img src="images/option4.png" alt="Option 4">
-                <h2>Option 4</h2>
+                <img src="https://res.cloudinary.com/dspprxtpr/image/upload/v1755615549/picolo_kjoiq7.png" alt="Piccolo">
+                <h2>Piccolo</h2>
             </div>
             <div class="card">
-                <img src="images/option5.png" alt="Option 5">
-                <h2>Option 5</h2>
+                <img src="https://res.cloudinary.com/dspprxtpr/image/upload/v1755615665/vegeta_yy2c9x.png" alt="Vegeta">
+                <h2>Vegeta</h2>
             </div>
         </div>
     </main>
     <footer>
-        <p>&copy; 2023 My Website</p>
+        <p>&copy; 2025 My Website</p>
     </footer>
-    <script src="script.js"></script>
+    <script type="module" src="scripts/main.js"></script>
     
 </body>
 </html>
