@@ -106,7 +106,7 @@ main {
     max-width: 140px;
     height: auto;
     max-height: 140px;
-    object-fit: contain;
+    object-fit: contain;  
     border-radius: 16px;
     margin-bottom: 8px;
     border: 2.5px solid #4fd1c5;
@@ -184,9 +184,9 @@ footer {
 
 /* Responsive */
 @media (max-width: 900px) {
-    .result-container {
+.result-container {
         flex-direction: column;
-        align-items: center;
+    align-items: center;
         padding: 18px 8px;
     }
     .card-options {
@@ -195,7 +195,7 @@ footer {
     .card {
         max-width: 200px;
         padding: 10px 6px 10px 6px;
-    }
+}
     .card img {
         width: 70px;
         height: 70px;
@@ -212,7 +212,7 @@ footer {
     header h1 {
         font-size: 1.3rem;
         margin: 18px 0 8px 0;
-    }
+}
     .result-container {
         padding: 8px 2px;
         gap: 12px;
@@ -222,7 +222,7 @@ footer {
         max-width: 160px;
         min-height: 180px;
         padding: 10px 4px 10px 4px;
-    }
+}
     .card img {
         width: 70px;
         height: 70px;
